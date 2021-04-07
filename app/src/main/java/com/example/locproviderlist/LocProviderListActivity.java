@@ -22,12 +22,9 @@ public class LocProviderListActivity extends AppCompatActivity implements View.O
         setContentView(R.layout.activity_main);
 
         mTextView = findViewById(R.id.txtOutput);
-        //locMgr = (LocationManager) getSystemService(LOCATION_SERVICE);
         mButton = findViewById(R.id.button);
 
         mButton.setOnClickListener(this);
-
-       // locProviders = locMgr.getAllProviders();
     }
 
     @Override
@@ -36,9 +33,9 @@ public class LocProviderListActivity extends AppCompatActivity implements View.O
         locProviders = locMgr.getAllProviders();
 
         String s = "";
-        for(int i = 0; i < locProviders.size(); i++) {
-            s += "Loc. Provider: " + locProviders.get(i) + "\n"
-                    + "Status: " + locMgr.isProviderEnabled(locProviders.get(i)) + "\n\n";
+        for(String locproviders : locProviders) {
+            s += "Loc. Provider: " + locProviders + "\n"
+                    + "Status: " + locMgr.isProviderEnabled(locproviders);
         }
                 mTextView.setText(s);
         }
